@@ -2,6 +2,8 @@
 import { useCategoriesStore } from '@/stores/categories';
 import { useProductsStore } from '@/stores/products';
 import { onMounted } from 'vue';
+import FormSearch from '@/components/FormSearch.vue'
+import ProductItem from '@/components/ProductItem.vue'
 
 const categoryStore = useCategoriesStore();
 const productStore = useProductsStore();
@@ -17,10 +19,10 @@ onMounted(() => {
         <h1>{{ categoryStore.selectedCategory }}</h1>
         <FormSearch />
 
-        <p 
-            v-for="product in productStore.products">
-            {{ product.name }}
-        </p>
+        <ProductItem 
+            v-for="product in productStore.products"
+            :produto="product">
+        </ProductItem>
     </main>
 </template>
 

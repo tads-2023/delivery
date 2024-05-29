@@ -2,6 +2,7 @@
 import { Menu, ShoppingCart, Avatar } from '@element-plus/icons-vue'
 
 import CategoriaView from './CategoriaView.vue';
+import CheckoutView from './CheckoutView.vue';
 </script>
 
 <template>
@@ -21,7 +22,7 @@ import CategoriaView from './CategoriaView.vue';
             <el-icon><ShoppingCart /></el-icon>
           </span>
         </template>
-        Config
+        <CheckoutView />
       </el-tab-pane>
       <el-tab-pane>
         <template #label>

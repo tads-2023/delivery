@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SplashView from '../views/SplashView.vue'
 import DetalheCategoriaView from '../views/DetalheCategoriaView.vue'
 import DetalheProdutoView from '../views/DetalheProdutoView.vue'
+import DadosCartaoView from '../views/DadosCartaoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/detalhe-produto',
       name: 'detalhe-produto',
       component: DetalheProdutoView
+    },
+    {
+      path: '/dados-cartao',
+      name: 'dados-cartao',
+      component: DadosCartaoView
     },
   ]
 })

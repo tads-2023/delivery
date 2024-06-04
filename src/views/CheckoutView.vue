@@ -2,8 +2,11 @@
 import CheckoutDivisor from '@/components/CheckoutDivisor.vue';
 import { CreditCard, HomeFilled } from '@element-plus/icons-vue';
 import { useCarrinhoStore } from '@/stores/carrinho';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const store = useCarrinhoStore();
+
 
 
 </script>
@@ -12,22 +15,22 @@ const store = useCarrinhoStore();
     <main>
         <h1>Checkout</h1>
 
-        <CheckoutDivisor title="Payment Method" />
+        <CheckoutDivisor title="Payment Method" @on-change-click="router.push('dados-cartao')" />
 
         <div class="checkout-item-content">
             <el-icon><CreditCard /></el-icon>
             <p>{{ store.dadosCartao.numero }}</p>
         </div>
 
-        <CheckoutDivisor title="Delivery Address" />
+        <CheckoutDivisor title="Delivery Address" @on-change-click="router.push('dados-endereco')" />
 
         <div class="checkout-item-content">
             <el-icon><HomeFilled /></el-icon>
             <div>
-                <p>Alexa Smith</p>
-                <p>Cesu 31 k2, SIA Chill</p>
-                <p>Riga</p>
-                <p>Latvia</p>
+                <p>{{store.dadosEndereco.rua}}</p>
+                <p>{{store.dadosEndereco.numero}}</p>
+                <p>{{store.dadosEndereco.bairro}}</p>
+                <p>{{store.dadosEndereco.complemento}}</p>
             </div>
         </div>
     </main>

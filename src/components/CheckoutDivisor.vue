@@ -1,10 +1,11 @@
 <script setup>
 import { useRouter } from "vue-router";
 const props = defineProps(["title"])
+const emit = defineEmits(["onChangeClick"])
 const router = useRouter();
 
 const onChangeClick = () => {
-    router.push("dados-cartao");
+    emit('onChangeClick')
 }
 
 </script>

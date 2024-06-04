@@ -1,5 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import { useCarrinhoStore } from '@/stores/carrinho';
+import { useRouter } from 'vue-router';
+
+const store = useCarrinhoStore();
+const router = useRouter();
 
 const cartao = ref({
     nome: "",
@@ -7,6 +12,11 @@ const cartao = ref({
     validade: "",
     cvc: ""
 });
+
+const salvarCartao = () => {
+    store.salvarCartao(cartao.value);
+    router.push("home")
+}
 </script>
 
 <template>
@@ -31,7 +41,7 @@ const cartao = ref({
             </el-form-item>
 
             <el-form-item>
-                <el-button type="primary">Salvar</el-button>
+                <el-button type="primary" @click="salvarCartao">Salvar</el-button>
             </el-form-item>
         </el-form>
     </div>

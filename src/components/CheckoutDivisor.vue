@@ -1,11 +1,18 @@
 <script setup>
+import { useRouter } from "vue-router";
 const props = defineProps(["title"])
+const router = useRouter();
+
+const onChangeClick = () => {
+    router.push("dados-cartao");
+}
+
 </script>
 
 <template>
     <div class="container">
         <h2>{{ props.title }}</h2>
-        <button>CHANGE</button>
+        <button @click="onChangeClick">CHANGE</button>
     </div>
 </template>
 

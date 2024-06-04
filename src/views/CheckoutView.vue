@@ -1,6 +1,10 @@
 <script setup>
 import CheckoutDivisor from '@/components/CheckoutDivisor.vue';
 import { CreditCard, HomeFilled } from '@element-plus/icons-vue';
+import { useCarrinhoStore } from '@/stores/carrinho';
+
+const store = useCarrinhoStore();
+
 
 </script>
 
@@ -12,7 +16,7 @@ import { CreditCard, HomeFilled } from '@element-plus/icons-vue';
 
         <div class="checkout-item-content">
             <el-icon><CreditCard /></el-icon>
-            <p>**** **** **** 4747</p>
+            <p>{{ store.dadosCartao.numero }}</p>
         </div>
 
         <CheckoutDivisor title="Delivery Address" />
